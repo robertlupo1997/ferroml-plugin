@@ -1,0 +1,7 @@
+{
+  "name": "ferroml",
+  "version": "1.0.0",
+  "description": "End-to-end machine learning with FerroML. Train models, run diagnostics, and get plain-language reports — all from natural conversation.",
+  "author": "FerroML",
+  "homepage": "https://github.com/robertlupo1997/ferroml"
+}

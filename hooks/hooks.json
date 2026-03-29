@@ -1,0 +1,28 @@
+[
+  {
+    "name": "ferroml-session-start",
+    "description": "Check FerroML installation and scan for data files at session start",
+    "event": "SessionStart",
+    "type": "command",
+    "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/session-start.sh",
+    "timeout": 15000
+  },
+  {
+    "name": "ferroml-validate-bash",
+    "description": "Validate data file references and catch sklearn installs before ML scripts run",
+    "event": "PreToolUse",
+    "matcher": "Bash",
+    "type": "command",
+    "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/scripts/validate-ml-bash.py",
+    "timeout": 5000
+  },
+  {
+    "name": "ferroml-diagnostic-check",
+    "description": "Ensure ML sessions include diagnostics, not just bare accuracy",
+    "event": "Stop",
+    "matcher": "*",
+    "type": "prompt",
+    "prompt": "Review the conversation. If the user asked to train or evaluate an ML model, check:\n1. Was a model actually trained and fitted (not just discussed)?\n2. Were diagnostics shown — at minimum ONE of: residual analysis, confidence intervals, feature importance, or a statistical summary table? Bare accuracy/RMSE alone does NOT count.\n3. Were results explained in plain language the user can understand?\n\nIf ALL three pass, or if the session was NOT about ML training/evaluation, respond with just: PASS\n\nIf any check fails, respond with:\nBLOCK: Missing [what's missing]. Before finishing, please [specific action needed].\n\nExamples of BLOCK:\n- BLOCK: Missing diagnostics. Before finishing, please show feature importance and confidence intervals for the trained model.\n- BLOCK: Missing plain-language explanation. Before finishing, please summarize what the model results mean in non-technical terms.",
+    "timeout": 20000
+  }
+]

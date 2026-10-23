@@ -43,7 +43,7 @@ Every ML session includes:
 
 The plugin bundles:
 
-- **1 skill** (55 files) -- the core ML intelligence with 6 workflows, 30 template scripts, 14 reference docs
+- **1 skill** (56 files) -- the core ML intelligence with 6 workflows, 30 template scripts, 14 reference docs
 - **5 commands** -- discoverable entry points for common workflows
 - **3 hooks** -- session bootstrap, data file validation, diagnostic quality enforcement
 - **1 agent** -- autonomous ML engineer for heavy workloads (AutoML, multi-model comparison)
@@ -85,4 +85,4 @@ Or just talk naturally:
 
 ## License
 
-MIT OR Apache-2.0
+MIT OR Apache-2.0 (intended; this repo does not include a LICENSE file yet)

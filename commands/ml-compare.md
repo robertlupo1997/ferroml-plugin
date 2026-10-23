@@ -28,6 +28,6 @@ The user wants to compare multiple ML models on the same dataset and see which o
 
 5. For non-technical users: "I tested 5 different approaches. Gradient Boosting is the clear winner — it's 8% more accurate than the runner-up and that difference is statistically significant."
 
-6. For ML engineers: full cross-validation results, per-fold metrics, paired t-test p-values.
+6. For ML engineers: full cross-validation results, per-fold metrics, t-test p-values (independent-samples test on per-fold scores).
 
 7. Write all trained models to `.ferroml-session.json`.
